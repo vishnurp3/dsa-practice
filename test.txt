@@ -1,75 +1,401 @@
-Below is a detailed overview of Breadth-First Search (BFS), focusing on its use of a queue data structure and why this choice is crucial to the BFS algorithm.
+Below is a structured, 12-week plan for practicing Data Structures and Algorithms (DSA) with one problem per day. Each week targets a particular category (or closely related categories) of problems commonly asked in interviews. Along with each problem, you’ll find a brief theory highlight to reinforce core concepts. You only need about one hour each day: spend about 15 minutes on the theory snippet and 45 minutes solving the problem.
 
-1. What is BFS?
+Week 1: Arrays & Basic Searching
 
-Breadth-First Search (BFS) is an algorithm used to traverse or search through data structures such as graphs or trees. It explores the nodes (or vertices) of a graph layer by layer (i.e., it visits all nodes at the current “distance” before moving on to the next “distance”).
+Focus: Familiarize yourself with fundamental array manipulations, linear scans, and basic searching strategies.
+	1.	Day 1
+	•	Problem: Two Sum
+	•	Theory: Hash maps for constant-time lookups.
+	•	Key Idea: Using a dictionary (hash map) to store seen elements and their indices for O(n) time complexity.
+	2.	Day 2
+	•	Problem: Best Time to Buy and Sell Stock (single transaction)
+	•	Theory: Track minimum value seen so far, calculate profit at each step.
+	•	Key Idea: Maintain a running minimum and compute potential profit.
+	3.	Day 3
+	•	Problem: Contains Duplicate
+	•	Theory: Use sets for quick checks, or sorting to find duplicates.
+	•	Key Idea: Understand set-based membership checks in O(1).
+	4.	Day 4
+	•	Problem: Rotate Array
+	•	Theory: Array rotation strategies: reversing segments vs. using extra array.
+	•	Key Idea: In-place rotation via reverse steps or a secondary buffer.
+	5.	Day 5
+	•	Problem: Search Insert Position
+	•	Theory: Binary search basics – how to modify it for insertion index.
+	•	Key Idea: Master the standard binary search pattern.
+	6.	Day 6
+	•	Problem: Remove Duplicates from Sorted Array
+	•	Theory: Two-pointer pattern.
+	•	Key Idea: How to do in-place modifications with minimal extra space.
+	7.	Day 7
+	•	Problem: Merge Sorted Array
+	•	Theory: Merging two sorted lists/arrays in-place.
+	•	Key Idea: Three-pointer approach from the end of arrays to avoid extra space.
 
-In a tree:
-	•	BFS starts at the root node, visits all children of the root, then visits all children of those children, and so on until every node has been processed.
+Week 2: Strings & Basic String Manipulations
 
-In a graph:
-	•	BFS begins at a chosen starting vertex, discovers all neighbors of that vertex, then proceeds to their neighbors, continuing outward until all reachable vertices have been processed.
+Focus: Operations on strings, common interview tasks, and understanding of string traversal.
+	1.	Day 1
+	•	Problem: Valid Anagram
+	•	Theory: Frequency counts using arrays/dictionaries.
+	•	Key Idea: Sorting or counting approach to check if two strings are anagrams.
+	2.	Day 2
+	•	Problem: Valid Palindrome
+	•	Theory: Two-pointer pattern, ignoring non-alphanumeric.
+	•	Key Idea: Converge from both ends, checking characters.
+	3.	Day 3
+	•	Problem: Implement strStr() (Substring Search)
+	•	Theory: Naive substring search vs. optimized (KMP) approach.
+	•	Key Idea: Understand the straightforward O(n*m) approach first.
+	4.	Day 4
+	•	Problem: Reverse String
+	•	Theory: Swapping characters in-place.
+	•	Key Idea: In-place reversing using two pointers at start/end.
+	5.	Day 5
+	•	Problem: Longest Common Prefix
+	•	Theory: Vertical vs. horizontal scanning approach.
+	•	Key Idea: Compare characters across all strings until mismatch.
+	6.	Day 6
+	•	Problem: First Unique Character in a String
+	•	Theory: Frequency map or indexing.
+	•	Key Idea: Single pass to count frequencies, second pass to find first unique.
+	7.	Day 7
+	•	Problem: Valid Parentheses (String-based)
+	•	Theory: Stack usage for bracket matching.
+	•	Key Idea: Push opening brackets, pop when matching closing bracket appears.
 
-2. Why Use a Queue?
+Week 3: Linked Lists
 
-A queue is a First-In-First-Out (FIFO) data structure. The property of FIFO is essential for BFS because it ensures that:
-	1.	Nodes are explored in layers. When you discover a node, you enqueue it. The next time a node is dequeued, it is the oldest (or earliest discovered) node that still needs its neighbors explored. This maintains the correct order of levels (or distances).
-	2.	Correct ordering of traversal. BFS systematically removes one node from the queue (the earliest discovered node), processes it, and then enqueues all of its unvisited neighbors, effectively “pushing out” one entire level before moving on to the next.
+Focus: Understand singly and doubly linked list operations, pointer manipulation, and typical interview problems.
+	1.	Day 1
+	•	Problem: Reverse Linked List
+	•	Theory: Iterative vs. recursive reversal.
+	•	Key Idea: Changing next pointers carefully to avoid losing references.
+	2.	Day 2
+	•	Problem: Merge Two Sorted Lists (Linked List)
+	•	Theory: Pointer manipulation on sorted singly linked lists.
+	•	Key Idea: Compare heads, attach smaller node, and move pointer forward.
+	3.	Day 3
+	•	Problem: Remove Nth Node from End of List
+	•	Theory: Fast and slow pointer technique.
+	•	Key Idea: The fast pointer moves n steps first, then move both until fast is null.
+	4.	Day 4
+	•	Problem: Linked List Cycle Detection
+	•	Theory: Floyd’s Tortoise and Hare algorithm.
+	•	Key Idea: Detect loops by using slow and fast pointers.
+	5.	Day 5
+	•	Problem: Palindrome Linked List
+	•	Theory: Reverse the second half of the list and compare.
+	•	Key Idea: Locate the midpoint, reverse second half in-place, then compare.
+	6.	Day 6
+	•	Problem: Intersection of Two Linked Lists
+	•	Theory: Length difference handling and two-pointer approach.
+	•	Key Idea: Traverse each list in sync by swapping heads once you reach the end.
+	7.	Day 7
+	•	Problem: Remove Duplicates from Sorted List
+	•	Theory: Simple pointer iteration and skip duplicates.
+	•	Key Idea: Update pointers to skip over duplicate values.
 
-How the queue fits into BFS
-	1.	Start by enqueueing the starting node (root for a tree, or chosen vertex in a graph).
-	2.	Dequeue a node from the queue, then:
-	•	Visit (or process) this node.
-	•	Enqueue any of its neighbors that have not yet been visited.
-	3.	Repeat until the queue is empty (meaning no more nodes are left to explore).
+Week 4: Stacks & Queues
 
-This queue-based logic guarantees that the algorithm moves level by level through the data structure.
+Focus: Master stack and queue operations, typical LIFO/FIFO problems, and advanced bracket problems.
+	1.	Day 1
+	•	Problem: Min Stack
+	•	Theory: Tracking minimum with an auxiliary stack or storing min at each node.
+	•	Key Idea: Keep track of the current minimum with each push/pop.
+	2.	Day 2
+	•	Problem: Implement Queue using Stacks
+	•	Theory: Two-stack approach.
+	•	Key Idea: Enqueue in one stack, dequeue from another.
+	3.	Day 3
+	•	Problem: Evaluate Reverse Polish Notation
+	•	Theory: Evaluate postfix expressions using a stack.
+	•	Key Idea: Push numbers, pop on operator, apply operation, push result.
+	4.	Day 4
+	•	Problem: Next Greater Element I (or II)
+	•	Theory: Monotonic stack.
+	•	Key Idea: Track elements in stack, pop when you find a bigger element.
+	5.	Day 5
+	•	Problem: Implement Stack using Queues
+	•	Theory: Two-queue approach (one queue is always empty eventually).
+	•	Key Idea: Push to queue, for pop, rotate elements until one remains.
+	6.	Day 6
+	•	Problem: Daily Temperatures
+	•	Theory: Another monotonic stack pattern.
+	•	Key Idea: Keep indices in stack, pop when a warmer temperature is found.
+	7.	Day 7
+	•	Problem: Design Circular Queue
+	•	Theory: Array-based circular buffer implementation.
+	•	Key Idea: Use modular arithmetic to handle wrap-around indexing.
 
-3. Step-by-Step Process
+Week 5: Recursion & Backtracking
 
-BFS in a Tree
-	1.	Initialize: Start with the root node. Mark it as visited and enqueue it.
-	2.	Process Queue:
-	•	Dequeue the front element of the queue (the current node).
-	•	“Process” this node (e.g., print its value, record it, etc.).
-	•	Enqueue all of its non-visited children.
-	3.	Repeat: Continue until the queue is empty.
+Focus: Develop familiarity with recursion call stacks, and typical backtracking templates.
+	1.	Day 1
+	•	Problem: Factorial or Fibonacci (Recursion Basics)
+	•	Theory: Base cases and recursive calls.
+	•	Key Idea: Identify terminal conditions.
+	2.	Day 2
+	•	Problem: Climbing Stairs
+	•	Theory: Recursion with memoization.
+	•	Key Idea: Subproblems (n-1) + (n-2).
+	3.	Day 3
+	•	Problem: Generate Parentheses
+	•	Theory: Backtracking approach with constraints (open <= closed).
+	•	Key Idea: Use recursion to build valid combinations step by step.
+	4.	Day 4
+	•	Problem: Permutations
+	•	Theory: Swapping or used-set approach.
+	•	Key Idea: Recursively swap each element to generate permutations.
+	5.	Day 5
+	•	Problem: Subsets
+	•	Theory: Backtracking with “choose/not choose” pattern.
+	•	Key Idea: For each element, consider including it or skipping it.
+	6.	Day 6
+	•	Problem: Combination Sum
+	•	Theory: Backtracking to explore all candidate sums.
+	•	Key Idea: Track running sum, avoid repeated combinations.
+	7.	Day 7
+	•	Problem: Word Search (2D board)
+	•	Theory: DFS backtracking on a grid.
+	•	Key Idea: Mark visited cells, explore neighbors, restore state after recursion.
 
-BFS in a Graph
-	1.	Initialize: Pick a start vertex. Mark it as visited, and enqueue it.
-	2.	Dequeue and Explore:
-	•	Dequeue the front vertex from the queue.
-	•	Process this vertex (e.g., record it, output it).
-	•	Enqueue all adjacent, non-visited vertices, marking them visited.
-	3.	Continue: Repeat until the queue is empty (i.e., no more newly discovered vertices to process).
+Week 6: Trees (Basics)
 
-Key Points:
-	•	If the graph is not necessarily connected, you may need to repeat BFS from multiple starting points—one for each connected component.
-	•	Tracking “visited” nodes is crucial to avoid processing the same node repeatedly and getting stuck in a cycle.
+Focus: Binary tree traversals (in-order, pre-order, post-order), BFS, DFS, and basic manipulations.
+	1.	Day 1
+	•	Problem: Binary Tree Inorder Traversal
+	•	Theory: Recursive vs. iterative with a stack.
+	•	Key Idea: Understand left-root-right pattern.
+	2.	Day 2
+	•	Problem: Binary Tree Preorder Traversal
+	•	Theory: Root-left-right.
+	•	Key Idea: Iterative approach with a stack, or simple recursion.
+	3.	Day 3
+	•	Problem: Binary Tree Postorder Traversal
+	•	Theory: Left-right-root.
+	•	Key Idea: Iterative approach often uses two stacks or a clever single-stack trick.
+	4.	Day 4
+	•	Problem: Maximum Depth of Binary Tree
+	•	Theory: DFS or BFS to find depth.
+	•	Key Idea: Height is max of left subtree height and right subtree height + 1.
+	5.	Day 5
+	•	Problem: Symmetric Tree
+	•	Theory: Recursively compare left and right subtrees.
+	•	Key Idea: Mirror check on subtrees.
+	6.	Day 6
+	•	Problem: Level Order Traversal (BFS)
+	•	Theory: Queue-based BFS.
+	•	Key Idea: Process nodes level by level.
+	7.	Day 7
+	•	Problem: Convert Sorted Array to BST
+	•	Theory: Divide and conquer approach for balanced BST.
+	•	Key Idea: Middle element as root, recurse for left/right subtrees.
 
-4. Why the Queue Ensures a “Breadth-First” Approach
-	•	FIFO nature: By always handling the oldest node in the queue first, you naturally complete one entire “layer” before moving deeper to the next layer in the graph or tree.
-	•	Distance layers: In an unweighted graph, BFS can find the shortest path from the start node to any other node. The queue’s order ensures that if you reach a node first (at a certain distance), you process all nodes at that distance before moving on.
-	•	Level order traversal: In a tree context, BFS is commonly used for “level order traversal,” where each level of the tree is processed fully before moving on to the next.
+Week 7: Binary Search Tree (BST) & Heaps
 
-5. Complexity and Practical Uses
-	1.	Time Complexity:
-	•	For a graph with ￼ vertices and ￼ edges, BFS takes ￼ time.
-	•	For a tree (a special case of a graph with ￼ vertices and ￼ edges), that simplifies to ￼.
-	2.	Space Complexity:
-	•	The queue can hold up to ￼ nodes in the worst case.
-	•	You also need an array/set to mark visited nodes (￼).
-	3.	Use Cases:
-	•	Shortest path in an unweighted graph: BFS is ideal for finding the minimum number of edges between two nodes.
-	•	Level order traversal: Particularly in trees, BFS is used to process nodes on a level-by-level basis.
-	•	Network broadcasting: Modeling a network of computers or social media connections, BFS simulates spreading a message as far and wide as possible, layer by layer.
-	•	Checking bipartite graphs: BFS can be used to test whether a graph is bipartite by trying to color nodes at even/odd levels in different colors.
+Focus: Deeper exploration of BST-specific operations and min-/max-heaps usage.
+	1.	Day 1
+	•	Problem: Validate Binary Search Tree
+	•	Theory: In-order traversal or range limits.
+	•	Key Idea: Recursively enforce left < root < right or check in-order sequence.
+	2.	Day 2
+	•	Problem: Lowest Common Ancestor of a BST
+	•	Theory: BST property to decide direction.
+	•	Key Idea: Move left/right based on values to find LCA.
+	3.	Day 3
+	•	Problem: Delete Node in a BST
+	•	Theory: Carefully handle all cases (no child, one child, two children).
+	•	Key Idea: For two children, find the successor or predecessor to replace.
+	4.	Day 4
+	•	Problem: Kth Smallest Element in a BST
+	•	Theory: In-order traversal yields sorted order.
+	•	Key Idea: Keep track of the count while traversing.
+	5.	Day 5
+	•	Problem: Implement a Min Heap (or Priority Queue)
+	•	Theory: Tree-based structure for extracting min in O(log n).
+	•	Key Idea: Maintain heap property via sift-up and sift-down operations.
+	6.	Day 6
+	•	Problem: Merge K Sorted Lists (Using Min Heap)
+	•	Theory: Priority queue to efficiently get the smallest node.
+	•	Key Idea: Insert the first node of each list, pop min, push its next.
+	7.	Day 7
+	•	Problem: Top K Frequent Elements
+	•	Theory: Use heap or sort by frequency.
+	•	Key Idea: Count frequencies then use a min-heap of size k or sorting approach.
 
-6. Putting It All Together
+Week 8: Graphs (Basics)
 
-Breadth-First Search is a fundamental graph or tree traversal algorithm notable for its use of a queue to maintain the order of discovery. The FIFO nature of the queue guarantees that you explore all vertices or nodes at one “distance” before moving on, which is precisely why BFS is referred to as breadth-first. Understanding this queue mechanism is key to grasping BFS’s performance characteristics, its level-by-level nature, and its ability to find the shortest path in an unweighted graph.
+Focus: Graph representation (adjacency list/matrix), BFS/DFS, cycle detection in directed/undirected graphs.
+	1.	Day 1
+	•	Problem: Graph Traversal Basics – BFS & DFS Implementation
+	•	Theory: Adjacency list creation, BFS queue, DFS recursion/stack.
+	•	Key Idea: Mark visited nodes to avoid revisiting.
+	2.	Day 2
+	•	Problem: Number of Islands (2D Grid)
+	•	Theory: Graph or DFS/BFS approach to cluster connected ‘1’s.
+	•	Key Idea: Convert the grid to an implicit graph, mark visited.
+	3.	Day 3
+	•	Problem: Clone Graph
+	•	Theory: BFS/DFS to copy nodes and edges.
+	•	Key Idea: Use a hash map to store the old->new node mapping.
+	4.	Day 4
+	•	Problem: Course Schedule (Cycle Detection)
+	•	Theory: Directed graph cycle detection using DFS or topological sort.
+	•	Key Idea: If there’s a cycle, you can’t finish all courses.
+	5.	Day 5
+	•	Problem: Course Schedule II (Topological Sort)
+	•	Theory: Kahn’s algorithm or DFS-based topological sort.
+	•	Key Idea: Use an in-degree array or stack-based DFS ordering.
+	6.	Day 6
+	•	Problem: Pacific Atlantic Water Flow
+	•	Theory: Reverse thinking BFS/DFS from oceans to land.
+	•	Key Idea: Mark visited from each ocean separately, intersect sets.
+	7.	Day 7
+	•	Problem: Detect Cycle in an Undirected Graph
+	•	Theory: Union-Find or DFS with parent tracking.
+	•	Key Idea: In DFS, if next is visited and not the parent, cycle found.
 
-In summary:
-	1.	BFS explores neighbors first, then moves outward, making it “broad” in scope each step.
-	2.	The queue data structure is essential because it preserves the correct visitation order.
-	3.	BFS is efficient, easy to implement, and useful for many graph- and tree-related problems.
+Week 9: Dynamic Programming (Fundamentals)
+
+Focus: Introduction to DP: overlapping subproblems, optimal substructure, memoization vs. tabulation.
+	1.	Day 1
+	•	Problem: Fibonacci (Bottom-up DP version)
+	•	Theory: Tabulation approach vs. recursion.
+	•	Key Idea: dp[i] = dp[i-1] + dp[i-2].
+	2.	Day 2
+	•	Problem: Climbing Stairs (DP Tabulation)
+	•	Theory: Variation on Fibonacci.
+	•	Key Idea: dp[i] = dp[i-1] + dp[i-2].
+	3.	Day 3
+	•	Problem: Coin Change (Minimum Coins)
+	•	Theory: Unbounded knapsack concept.
+	•	Key Idea: dp[x] = min(dp[x], dp[x - coin] + 1).
+	4.	Day 4
+	•	Problem: 0/1 Knapsack (Conceptual or Basic Implementation)
+	•	Theory: Classic DP for selecting items under capacity constraint.
+	•	Key Idea: dp[i][w] depends on including or excluding the i-th item.
+	5.	Day 5
+	•	Problem: House Robber
+	•	Theory: Adjacent house constraint.
+	•	Key Idea: dp[i] = max(dp[i-1], dp[i-2] + nums[i]).
+	6.	Day 6
+	•	Problem: Maximum Subarray (Kadane’s Algorithm)
+	•	Theory: DP approach to track max sum ending here, global max.
+	•	Key Idea: max_ending_here = max(nums[i], max_ending_here + nums[i]).
+	7.	Day 7
+	•	Problem: Unique Paths (Grid)
+	•	Theory: Paths in grid = from top-left to bottom-right.
+	•	Key Idea: dp[i][j] = dp[i-1][j] + dp[i][j-1].
+
+Week 10: Advanced Dynamic Programming & Greedy Patterns
+
+Focus: Dive deeper into classical DP problems and some common greedy solutions.
+	1.	Day 1
+	•	Problem: Longest Increasing Subsequence
+	•	Theory: DP O(n^2) or optimized O(n log n).
+	•	Key Idea: dp[i] = length of LIS ending at i.
+	2.	Day 2
+	•	Problem: Edit Distance (Levenshtein)
+	•	Theory: DP for string transformations.
+	•	Key Idea: dp[i][j] based on insert, delete, replace from smaller subproblems.
+	3.	Day 3
+	•	Problem: Decode Ways (Strings)
+	•	Theory: DP approach counting valid decodings.
+	•	Key Idea: dp[i] depends on single digit decode and two-digit decode.
+	4.	Day 4
+	•	Problem: Jump Game
+	•	Theory: Greedy or DP approach for can/can’t reach end.
+	•	Key Idea: Track the farthest reachable index so far.
+	5.	Day 5
+	•	Problem: Interval Scheduling (Greedy)
+	•	Theory: Sort intervals by finish time.
+	•	Key Idea: Select intervals that finish earliest to maximize usage.
+	6.	Day 6
+	•	Problem: Partition Equal Subset Sum
+	•	Theory: Variation of subset-sum.
+	•	Key Idea: Check if sum/2 can be formed using the array.
+	7.	Day 7
+	•	Problem: Word Break
+	•	Theory: DP approach verifying if string can be segmented into dictionary words.
+	•	Key Idea: dp[i] is true if dp[j] is true and substring(j+1..i) is valid.
+
+Week 11: Common Pattern Problems (Two Pointers, Sliding Window, etc.)
+
+Focus: Identify and practice top patterns used in interviews.
+	1.	Day 1
+	•	Problem: Valid Palindrome II (at most one deletion)
+	•	Theory: Two-pointer pattern with a slight twist.
+	•	Key Idea: If mismatch, try skipping left or right pointer once.
+	2.	Day 2
+	•	Problem: Container With Most Water
+	•	Theory: Two-pointer from both ends.
+	•	Key Idea: Move pointer from the smaller height side.
+	3.	Day 3
+	•	Problem: 3Sum
+	•	Theory: Sort + two-pointer approach.
+	•	Key Idea: Fix one number, use two-pointer to find pairs that sum to target.
+	4.	Day 4
+	•	Problem: Minimum Size Subarray Sum
+	•	Theory: Sliding window to find subarray with sum >= target.
+	•	Key Idea: Expand and shrink window while tracking sum.
+	5.	Day 5
+	•	Problem: Longest Substring Without Repeating Characters
+	•	Theory: Sliding window + hash map for character indices.
+	•	Key Idea: Move the end pointer forward, adjust start pointer to remove duplicates.
+	6.	Day 6
+	•	Problem: Find All Anagrams in a String
+	•	Theory: Sliding window with frequency counts.
+	•	Key Idea: Compare freq of current window to freq of pattern.
+	7.	Day 7
+	•	Problem: Longest Repeating Character Replacement
+	•	Theory: Sliding window adjusting for how many changes allowed.
+	•	Key Idea: Keep track of count of the most frequent char in window to decide window size.
+
+Week 12: Reviewing & Mixed Practice
+
+Focus: This week is a mix of review, reinforcement, and a few final tricky problems to round out your preparation.
+	1.	Day 1
+	•	Problem: Merge Intervals
+	•	Theory: Sort intervals by start time, merge overlapping ones.
+	•	Key Idea: Compare current interval with the last merged interval to decide overlap.
+	2.	Day 2
+	•	Problem: Largest Rectangle in Histogram
+	•	Theory: Stack-based approach.
+	•	Key Idea: Maintain indices of bars in increasing height order on the stack.
+	3.	Day 3
+	•	Problem: Maximal Square (Matrix DP)
+	•	Theory: DP for 2D array.
+	•	Key Idea: dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) if cell is ‘1’.
+	4.	Day 4
+	•	Problem: Longest Palindromic Substring
+	•	Theory: Expand around center or DP.
+	•	Key Idea: For each center, expand while characters match.
+	5.	Day 5
+	•	Problem: Revisit a Favorite Problem
+	•	Theory: Choose any earlier problem that felt challenging.
+	•	Key Idea: Reinforce the approach, see if you can solve it faster or in a different way.
+	6.	Day 6
+	•	Problem: Revisit Another Favorite Problem
+	•	Theory: Another revisit from the set.
+	•	Key Idea: Attempt to optimize or use a different approach (iterative vs. recursive, etc.).
+	7.	Day 7
+	•	Problem: Final Mock Interview Problem
+	•	Theory: Pick any new or random interview question from a category you’re less confident in.
+	•	Key Idea: Practice explaining your thought process and solution step by step.
+
+How to Use This Schedule
+	1.	Allocate One Hour Daily
+	•	15 minutes: Skim the theory highlight for the day’s problem. Note any relevant patterns or data structures needed.
+	•	45 minutes: Solve the day’s problem. First, outline your approach, then code it. If you get stuck, revisit the hints in the theory or similar patterns you’ve practiced.
+	2.	Track Progress & Revisit
+	•	Keep notes on each problem – especially the steps that were not obvious.
+	•	As you move forward, see if you can draw parallels between new problems and previously solved ones (e.g., same pattern, slightly different constraints).
+	3.	Focus on Understanding
+	•	Even if some problems feel repetitive, they reinforce essential techniques (e.g., two-pointer, sliding window, BFS/DFS on graphs, DP states).
+	•	By Week 12, you’ll have a strong foundation of common interview topics.
+	4.	Optional Extra
+	•	If you have leftover time, do brief “flash reviews” of earlier problems.
+	•	Practice explaining your reasoning out loud, simulating real interviews.
+
+Following this one-problem-per-day plan for 12 weeks will steadily build familiarity with a wide range of data structures and algorithmic patterns. Good luck with your preparation!
